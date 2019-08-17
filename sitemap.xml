@@ -3,15 +3,15 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://reconbug.github.io/categories/</loc>
+    <loc>https://reconbug.github.io/categories.html</loc>
   </url>
   
   <url>
-    <loc>http://reconbug.github.io/</loc>
+    <loc>https://reconbug.github.io/</loc>
   </url>
   
   <url>
-    <loc>http://reconbug.github.io/tags/</loc>
+    <loc>https://reconbug.github.io/tags.html</loc>
   </url>
   
 </urlset>
