@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on ReconBlog</title>
-    <link>https://reconbug.github.io/categories.html</link>
+    <link>https://reconbug.github.io/categories/</link>
     <description>Recent content in Categories on ReconBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>

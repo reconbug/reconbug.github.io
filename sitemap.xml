@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://reconbug.github.io/categories.html</loc>
+    <loc>https://reconbug.github.io/categories/</loc>
   </url>
   
   <url>
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://reconbug.github.io/tags.html</loc>
+    <loc>https://reconbug.github.io/tags/</loc>
   </url>
   
 </urlset>
