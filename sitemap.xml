@@ -3,7 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://reconbug.github.io/posts/intro/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://reconbug.github.io/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://reconbug.github.io/posts/</loc>
   </url>
   
   <url>
