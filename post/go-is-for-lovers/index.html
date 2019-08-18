@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Go! - ReconBlog.IO</title>
+    
+    <meta name="description" content="Go is for lovers! Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.">
+    <meta name="author" content="">
+    
+    <link href="https://reconbug.github.io/css/github-gist.min.css" rel="stylesheet">
+    <link href="https://reconbug.github.io/css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://reconbug.github.io/img/apple-touch-icon.png">
+    <link rel="icon" href="https://reconbug.github.io/img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.57.0" />
+    
+    <link rel="alternate" type="application/atom+xml" href="https://reconbug.github.io/index.xml" title="ReconBlog.IO">
+    
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="https://reconbug.github.io/">ReconBlog.IO</a></p>
+        
+        
+        <button class="menu-toggle" type="button"></button>
+        
+      </div>
+    </header>
+    
+    <nav class="nav">
+      <ul class="menu">
+        
+        <li>
+          <a href="/">Home</a>
+        </li>
+        
+        <li>
+          <a href="post/">Blog</a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Go!</h1>
+    <div class="post-meta">2016.8.3</div>
+  </header>
+  <div class="post-content"><div class="sect1">
+<h2 id="_go_is_for_lovers">Go is for lovers!</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Hugo uses the excellent <a href="http://golang.org/">go</a>
+<a href="http://golang.org/pkg/html/template/">html/template</a> library for its
+template engine. It is an extremely lightweight engine that provides a
+very small amount of logic. In our experience that it is just the right
+amount of logic to be able to create a good static website. If you have
+used other template systems from different languages or frameworks you
+will find a lot of similarities in go templates.</p>
+</div>
+<div class="paragraph">
+<p>This document is a brief primer on using go templates. The
+<a href="http://golang.org/pkg/html/template/">go docs</a> provide more details.</p>
+</div>
+<div class="sect2">
+<h3 id="introduction-to-go-templates">Introduction to Go Templates</h3>
+<div class="paragraph">
+<p>Go templates provide an extremely simple template language. It adheres
+to the belief that only the most basic of logic belongs in the template
+or view layer. One consequence of this simplicity is that go templates
+parse very quickly.</p>
+</div>
+<div class="paragraph">
+<p>A unique characteristic of go templates is they are content aware.
+Variables and content will be sanitized depending on the context of
+where they are used. More details can be found in the
+<a href="http://golang.org/pkg/html/template/">go docs</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="basic-syntax">Basic Syntax</h3>
+<div class="paragraph">
+<p>Go lang templates are html files with the addition of variables and
+functions.</p>
+</div>
+<div class="paragraph">
+<p><strong>Go variables and functions are accessible within \{\{ }}</strong></p>
+</div>
+<div class="paragraph">
+<p>Accessing a predefined variable "foo":</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{{ foo }}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Parameters are separated using spaces</strong></p>
+</div>
+<div class="paragraph">
+<p>Calling the add function with input of 1, 2:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{{ add 1 2 }}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Methods and fields are accessed via dot notation</strong></p>
+</div>
+<div class="paragraph">
+<p>Accessing the Page Parameter "bar"</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{{ .Params.bar }}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Parentheses can be used to group items together</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{{ if or (isset .Params "alt") (isset .Params "caption") }} Caption {{ end }}</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="variables">Variables</h3>
+<div class="paragraph">
+<p>Each go template has a struct (object) made available to it. In hugo
+each template is passed either a page or a node struct depending on
+which type of page you are rendering. More details are available on the
+<a href="/layout/variables">variables</a> page.</p>
+</div>
+<div class="paragraph">
+<p>A variable is accessed by referencing the variable name.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;title&gt;{{ .Title }}&lt;/title&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Variables can also be defined and referenced.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{{ $address := "123 Main St."}}
+{{ $address }}</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="functions">Functions</h3>
+<div class="paragraph">
+<p>Go template ship with a few functions which provide basic functionality.
+The go template system also provides a mechanism for applications to
+extend the available functions with their own.
+<a href="/layout/functions">Hugo template functions</a> provide some additional
+functionality we believe are useful for building websites. Functions are
+called by using their name followed by the required parameters separated
+by spaces. Template functions cannot be added without recompiling hugo.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{{ add 1 2 }}</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="includes">Includes</h3>
+<div class="paragraph">
+<p>When including another template you will pass to it the data it will be
+able to access. To pass along the current context please remember to
+include a trailing dot. The templates location will always be starting
+at the /layout/ directory within Hugo.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{{ template "chrome/header.html" . }}</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logic">Logic</h3>
+<div class="paragraph">
+<p>Go templates provide the most basic iteration and conditional logic.</p>
+</div>
+<div class="sect3">
+<h4 id="iteration">Iteration</h4>
+<div class="paragraph">
+<p>Just like in go, the go templates make heavy use of range to iterate
+over a map, array or slice. The following are different examples of how
+to use range.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example 1: Using Context</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{{ range array }}
+    {{ . }}
+{{ end }}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example 2: Declaring value variable name</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{{range $element := array}}
+    {{ $element }}
+{{ end }}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example 2: Declaring key and value variable name</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{{range $index, $element := array}}
+    {{ $index }}
+    {{ $element }}
+{{ end }}</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="conditionals">Conditionals</h4>
+<div class="paragraph">
+<p>If, else, with, or, &amp; and provide the framework for handling conditional
+logic in Go Templates. Like range, each statement is closed with <code>end</code>.</p>
+</div>
+<div class="paragraph">
+<p>Go Templates treat the following values as false:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>false</p>
+</li>
+<li>
+<p>0</p>
+</li>
+<li>
+<p>any array, slice, map, or string of length zero</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Example 1: If</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{{ if isset .Params "title" }}&lt;h4&gt;{{ index .Params "title" }}&lt;/h4&gt;{{ end }}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example 2: If &#8594; Else</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{{ if isset .Params "alt" }}
+    {{ index .Params "alt" }}
+{{else}}
+    {{ index .Params "caption" }}
+{{ end }}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example 3: And &amp; Or</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{{ if and (or (isset .Params "title") (isset .Params "caption")) (isset .Params "attr")}}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example 4: With</strong></p>
+</div>
+<div class="paragraph">
+<p>An alternative way of writing "if" and then referencing the same value
+is to use "with" instead. With rebinds the context <code>.</code> within its scope,
+and skips the block if the variable is absent.</p>
+</div>
+<div class="paragraph">
+<p>The first example above could be simplified as:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{{ with .Params.title }}&lt;h4&gt;{{ . }}&lt;/h4&gt;{{ end }}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example 5: If &#8594; Else If</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{{ if isset .Params "alt" }}
+    {{ index .Params "alt" }}
+{{ else if isset .Params "caption" }}
+    {{ index .Params "caption" }}
+{{ end }}</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="pipes">Pipes</h3>
+<div class="paragraph">
+<p>One of the most powerful components of go templates is the ability to
+stack actions one after another. This is done by using pipes. Borrowed
+from unix pipes, the concept is simple, each pipeline&#8217;s output becomes
+the input of the following pipe.</p>
+</div>
+<div class="paragraph">
+<p>Because of the very simple syntax of go templates, the pipe is essential
+to being able to chain together function calls. One limitation of the
+pipes is that they only can work with a single value and that value
+becomes the last parameter of the next pipeline.</p>
+</div>
+<div class="paragraph">
+<p>A few simple examples should help convey how to use the pipe.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example 1 :</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{{ if eq 1 1 }} Same {{ end }}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>is the same as</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{{ eq 1 1 | if }} Same {{ end }}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It does look odd to place the if at the end, but it does provide a good
+illustration of how to use the pipes.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example 2 :</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{{ index .Params "disqus_url" | html }}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Access the page parameter called "disqus_url" and escape the HTML.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example 3 :</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{{ if or (or (isset .Params "title") (isset .Params "caption")) (isset .Params "attr")}}
+Stuff Here
+{{ end }}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Could be rewritten as</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{{  isset .Params "caption" | or isset .Params "title" | or isset .Params "attr" | if }}
+Stuff Here
+{{ end }}</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="context-aka.-the-dot">Context (aka. the dot)</h3>
+<div class="paragraph">
+<p>The most easily overlooked concept to understand about go templates is
+that \{\{ . }} always refers to the current context. In the top level of
+your template this will be the data set made available to it. Inside of
+a iteration it will have the value of the current item. When inside of a
+loop the context has changed. . will no longer refer to the data
+available to the entire page. If you need to access this from within the
+loop you will likely want to set it to a variable instead of depending
+on the context.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>  {{ $title := .Site.Title }}
+  {{ range .Params.tags }}
+    &lt;li&gt; &lt;a href="{{ $baseurl }}/tags/{{ . | urlize | lower  }}"&gt;{{ . }}&lt;/a&gt; - {{ $title }} &lt;/li&gt;
+  {{ end }}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice how once we have entered the loop the value of \{\{ . }} has
+changed. We have defined a variable outside of the loop so we have
+access to it from within the loop.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="hugo-parameters">Hugo Parameters</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Hugo provides the option of passing values to the template language
+through the site configuration (for sitewide values), or through the
+meta data of each specific piece of content. You can define any values
+of any type (supported by your front matter/config format) and use them
+however you want to inside of your templates.</p>
+</div>
+<div class="sect2">
+<h3 id="using-content-page-parameters">Using Content (page) Parameters</h3>
+<div class="paragraph">
+<p>In each piece of content you can provide variables to be used by the
+templates. This happens in the <a href="/content/front-matter">front matter</a>.</p>
+</div>
+<div class="paragraph">
+<p>An example of this is used in this documentation site. Most of the pages
+benefit from having the table of contents provided. Sometimes the TOC
+just doesn&#8217;t make a lot of sense. We&#8217;ve defined a variable in our front
+matter of some pages to turn off the TOC from being displayed.</p>
+</div>
+<div class="paragraph">
+<p>Here is the example front matter:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>---
+title: "Permalinks"
+date: "2013-11-18"
+aliases:
+  - "/doc/permalinks/"
+groups: ["extras"]
+groups_weight: 30
+notoc: true
+---</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here is the corresponding code inside of the template:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>  {{ if not .Params.notoc }}
+    &lt;div id="toc" class="well col-md-4 col-sm-6"&gt;
+    {{ .TableOfContents }}
+    &lt;/div&gt;
+  {{ end }}</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="using-site-config-parameters">Using Site (config) Parameters</h3>
+<div class="paragraph">
+<p>In your top-level configuration file (eg, <code>config.yaml</code>) you can define
+site parameters, which are values which will be available to you in
+chrome.</p>
+</div>
+<div class="paragraph">
+<p>For instance, you might declare:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-yaml" data-lang="yaml">params:
+  CopyrightHTML: "Copyright &amp;#xA9; 2013 John Doe. All Rights Reserved."
+  TwitterUser: "spf13"
+  SidebarRecentLimit: 5</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Within a footer layout, you might then declare a <code>&lt;footer&gt;</code> which is
+only provided if the <code>CopyrightHTML</code> parameter is provided, and if it is
+given, you would declare it to be HTML-safe, so that the HTML entity is
+not escaped again. This would let you easily update just your top-level
+config file each January 1st, instead of hunting through your templates.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{{if .Site.Params.CopyrightHTML}}&lt;footer&gt;
+&lt;div class="text-center"&gt;{{.Site.Params.CopyrightHTML | safeHtml}}&lt;/div&gt;
+&lt;/footer&gt;{{end}}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>An alternative way of writing the "if" and then referencing the same
+value is to use "with" instead. With rebinds the context <code>.</code> within its
+scope, and skips the block if the variable is absent:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{{with .Site.Params.TwitterUser}}&lt;span class="twitter"&gt;
+&lt;a href="https://twitter.com/{{.}}" rel="author"&gt;
+&lt;img src="/images/twitter.png" width="48" height="48" title="Twitter: {{.}}"
+ alt="Twitter"&gt;&lt;/a&gt;
+&lt;/span&gt;{{end}}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Finally, if you want to pull "magic constants" out of your layouts, you
+can do so, such as in this example:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;nav class="recent"&gt;
+  &lt;h1&gt;Recent Posts&lt;/h1&gt;
+  &lt;ul&gt;{{range first .Site.Params.SidebarRecentLimit .Site.Recent}}
+    &lt;li&gt;&lt;a href="{{.RelPermalink}}"&gt;{{.Title}}&lt;/a&gt;&lt;/li&gt;
+  {{end}}&lt;/ul&gt;
+&lt;/nav&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+  <footer class="post-footer">
+    
+  </footer>
+  
+  
+  
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_shortname = 'reconblog';
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+  
+  
+  
+</article>
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 <a href="https://reconbug.github.io/">ReconBlog.IO</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="https://reconbug.github.io/js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="https://reconbug.github.io/js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  let body;
+  function menuToggleListener() {
+    body.classList.toggle('blur');
+  }
+  function setMenuToggleListener() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (!menuToggle) return;
+    body = document.querySelector('body');
+    menuToggle.addEventListener('click', menuToggleListener);
+  }
+
+  hljs.initHighlightingOnLoad();
+  setMenuToggleListener();
+
+  InstantClick.on('change', function () {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuToggleListener();
+  });
+</script>
+</body>
+</html>
+

@@ -3,20 +3,53 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://reconbug.github.io/posts/intro/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://reconbug.github.io/categories/</loc>
+    <lastmod>2017-07-28T15:06:07-04:00</lastmod>
   </url>
   
   <url>
-    <loc>https://reconbug.github.io/posts/</loc>
+    <loc>https://reconbug.github.io/categories/lorem/</loc>
+    <lastmod>2017-07-28T15:06:07-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reconbug.github.io/post/</loc>
+    <lastmod>2017-07-28T15:06:07-04:00</lastmod>
   </url>
   
   <url>
     <loc>https://reconbug.github.io/</loc>
+    <lastmod>2017-07-28T15:06:07-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reconbug.github.io/post/article/</loc>
+    <lastmod>2017-07-28T15:06:07-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reconbug.github.io/post/creating-a-new-theme/</loc>
+    <lastmod>2016-08-03T13:39:46+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reconbug.github.io/post/go-is-for-lovers/</loc>
+    <lastmod>2016-08-03T13:39:46+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reconbug.github.io/post/mine/</loc>
+    <lastmod>2016-07-26T14:31:37-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reconbug.github.io/post/migrate-from-jekyll/</loc>
+    <lastmod>2015-10-10T13:07:31+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reconbug.github.io/post/hugo-is-for-lovers/</loc>
+    <lastmod>2015-08-03T13:39:46+02:00</lastmod>
   </url>
   
   <url>

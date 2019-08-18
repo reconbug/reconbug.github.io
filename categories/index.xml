@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on ReconBlog</title>
+    <title>Categories on ReconBlog.IO</title>
     <link>https://reconbug.github.io/categories/</link>
-    <description>Recent content in Categories on ReconBlog</description>
+    <description>Recent content in Categories on ReconBlog.IO</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 28 Jul 2017 15:06:07 -0400</lastBuildDate>
     
 	<atom:link href="https://reconbug.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Lorem</title>
+      <link>https://reconbug.github.io/categories/lorem/</link>
+      <pubDate>Fri, 28 Jul 2017 15:06:07 -0400</pubDate>
+      
+      <guid>https://reconbug.github.io/categories/lorem/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>
